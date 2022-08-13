@@ -63,7 +63,9 @@ export default function TextEditor() {
   }, [socket, quill, documentID])
 
   useEffect(() => {
-    const s = io(import.meta.env.VITE_SERVER_URL)
+    const s = io(import.meta.env.VITE_SERVER_URL,{
+      path:'/meowdocs'
+    })
     setSocket(s)
     return () => {
       s.disconnect()
